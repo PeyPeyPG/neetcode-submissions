@@ -1,0 +1,14 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        dic = {}
+        for c in s:
+            if stack and  c == ')' and stack[-1] == '(':
+                stack.pop()
+            elif stack and c == ']' and stack[-1] == '[':
+                stack.pop()
+            elif stack and c == '}' and stack[-1] == '{':
+                stack.pop()
+            else:
+                stack.append(c)
+        return not stack
